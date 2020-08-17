@@ -15,7 +15,7 @@ jobs:
           github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
           ado_organization: "neolantservice4"
           ado_project: "NEOSYNTEZ API"
-          ado_area_path: "optional_area_path\\optional_area_path"
+          ado_area_path: "NEOSYNTEZ API"
           ado_wit: "User Story"
           ado_new_state: "New"
           ado_close_state: "Closed"
