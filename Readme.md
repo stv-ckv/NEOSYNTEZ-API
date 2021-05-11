@@ -14,32 +14,56 @@
 <div style="padding-left: 15pt; padding-top: 20px;">
     <strong>Проект включает в себя:</strong>
     <ol type="1">
-        <li> Исходные коды адаптера разделенные на модули директория <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fsrc"><strong>/src</strong></a>:
+        <li> Исходные коды адаптера разделенные на модули, директория <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fsrc"><strong>/src</strong></a>:
             <ul>
                 <li>
-                   <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fsrc%2FClient.Application"><strong>Client.Application/</strong></a> пространство имен сервисов работы с REST API
+                    <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fsrc%2FClient.Application"><strong>Client.Application/</strong></a> пространство имен
+                    сервисов работы с REST API
                 </li>
                 <li>
-                    <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fsrc%2FClient.Domain"><strong>Client.Domain/</strong></a> домен/ядро приложения включающее в себя модели и контракты используемые для
+                    <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fsrc%2FClient.Domain"><strong>Client.Domain/</strong></a> домен/ядро приложения
+                    включающее в себя модели и контракты используемые для
                     взаимодействия с REST API
                 </li>
-                <li>
-                   <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fsrc%2FClient.AutofacModule"><strong>Client.AutofacModule/</strong></a>  пространство имен модуля настройки Адаптера через DI Autofac.
+                <li><a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fsrc%2FClient.Extensions"><strong>Client.Extensions/</strong></a> Методы расширения для
+                    подлючения к DependencyInjection
+                </li>
             </ul>
         </li>
         <li>
-            Краткие <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fexamples%2FApiExamples"><strong>примеры</strong></a> использования адатпера. Примеры включают в себя вариант подключения через
+            Краткие <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fexamples%2FApiExamples"><strong>примеры</strong></a> использования адатпера. Примеры
+            включают в себя вариант подключения через
             <strong>Microsoft.Extensions.DependencyInjection</strong>, а так же краткое описние работы с сервисами.
         </li>
         <li>
-            Тесты <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Ftests"><strong>/tests</strong></a>. Тесты разделены на Unit и Интеграционные, для воспроизведения интеграционных тестов требуется
+            Тесты <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Ftests"><strong>/tests</strong></a>. Тесты разделены на Unit и Интеграционные, для
+            воспроизведения интеграционных тестов требуется
             настройка взаимодействия с действующим экземпляром Неосинтез.
         </li>
         <li>
             Скрипты сборки и тестирования в среде Azure <a href="https://dev.azure.com/neolantservice4/NEOSYNTEZ%20API/_git/NEOSYNTEZ%20API?path=%2Fbuild"><strong>/build</strong></a> .
         </li>
         <li>
-           Обратная связь через <a href="https://github.com/stv-ckv/NEOSYNTEZ-API/issues"><strong>issue</strong></a>
+            Обратная связь через <a href="https://github.com/stv-ckv/NEOSYNTEZ-API/issues"><strong>issue</strong></a>
         </li>
+    </ol>
+    <strong>Изменения в версии 1.5.0</strong>
+    <ol type="1">
+        <li>Добавлены методы расширения для Microsoft.Extensions.DependencyInjection</li>
+        <li>Удален проект с модулем подключения для DI Autofac</li>
+        <li>Переработано получение токена безопасности:
+            <ul>
+                <li>Теперь дата истечения токена безопасности не вычисляется, а получается из самого токена безопасности напрямую.</li>
+                <li>Расширена модель токена безопасности, в нее сохраняются данные о пользователе кому принадлежит токе, а также о времени, до которого токен не действителен.</li>
+                <li>Проверка на истечение токена безопасности теперь производится везде в UTC.</li>
+                <li>Добавлена обработка абсолютного пути к экземпляру Неосинтез.</li>
+                <li>Переработано устройство хранения и обновления токена безопасности.</li>
+            </ul>
+        <li>Переработаны методы http запросов.</li>
+        <li>Расширены параметры фабрики поискового запроса (добавлен параметр Mode) для обработки вариантов поиска по архивным и текущим версиям объектов. По-умолчанию поиск только по актуальным
+            версиям документов.
+        </li>
+        <li>Добавлены методы расширения для работы с коллекцией атрибутов и с отдельными атрибутами</li>
+        <li>Мелкие исправления.</li>
     </ol>
 </div>
